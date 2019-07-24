@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  background-color:#f7fbfc;
+}
+
+.to-do-title {
+  text-align: center;
+  padding: 50px 0;
+  background-color:#f7fbfc;
+}
+
+.to-do-list {
+  width: 100%;
+  background-color: #d6e6f2;
+  text-align: center;
+  padding: 25px 0px;
+}
+
+.container {
+  max-width: 720px;
+  min-width: 400px;
+  margin: auto;
+}
+
+.priority {
+  font-size: 24px;
+  padding: 15px 0px;
+
+  & input {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    opacity: 0;
+    margin-left: 1px;
+    margin-top: 5px;
+    z-index: 1;
+
+    &:checked ~ .priority-radio-box::after {
+      display: block;
+    }
+  }
+  & label {
+    cursor: pointer;    
+  }
+}
+
+.priority-radio-box {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    display: none;
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gray;
+  }
+}
+
+.to-do-input {
+  width: 100%;
+  height: 1.5em;
+  font-size: 16px;
+  margin: 10px 0;
+  border-radius: 3px;
+  border: solid 2px #769fcd;
+}
+
+.input-content {
+  height: 2.5em;
+}
+
+.button {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 2px #769fcd;
+  transition: all 0.3s;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #769fcd;
+    border: solid 2px white;
+  }
+}
+
+.to-do-input-button {
+  padding: 0px 20px;
+  font-size:16px;
+}
+
+.sort-area {
+  padding: 20px 0px 0px 0px;
+}
+
+.to-do-list-style {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;  
+}
+
+.to-do-list-item {
+  text-align: start;
+  border: solid 1px white;
+  padding: 8px;
+  margin: 5px 0;
+  background-color: #b9d7ea;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-area {
+  flex-basis: 16%;
+  flex-shrink: 0;
+}
+
+.priority-box {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: -1px;
+}
+
+.bgGreen {
+  background-color: #eaffd0;
+}
+
+.bgYellow {
+  background-color: #fce38a;
+}
+
+.bgRed {
+  background-color: #f38181;
+}
+
+.date-area {
+  font-size: 12px;
+}

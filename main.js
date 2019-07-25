@@ -50,8 +50,8 @@ Vue.component('to-do-list',{
 
               <div class="flex-item edit-area">
                 <span>
-                  <button class="button" @click="editTheItem(index)" v-show="todoList.editShow"> <i class="far fa-edit"></i> </button>
-                  <input class="to-do-input" type="text" @keyup.enter="editSubmit(index)" v-show="!todoList.editShow" v-model.trim="todoList.content">
+                  <button class="button" @click="editHandler(index)" v-show="todoList.editShow"> <i class="far fa-edit"></i> </button>
+                  <input class="to-do-input" type="text" :ref="'typeBox'+index" @keyup.enter="editSubmit(index)" v-show="!todoList.editShow" v-model.trim="todoList.content">
                   <button class="button" @click="editSubmit(index)" v-show="!todoList.editShow"> <i class="far fa-edit"></i> </button>
                   <button class="button" @click="deleteTheItem(index)"><i class="far fa-trash-alt"></i></button>
                   <span class="date-area"> {{ showMonth(todoList.itemDate) + '/' + showDate(todoList.itemDate) }}</span>
@@ -109,6 +109,15 @@ Vue.component('to-do-list',{
     editTheItem(index) {
       this.todoLists[index].editShow = false;
     },
+    editFocus(index) {
+      this.$refs.typeBox[index][0].focus();
+    },
+    editHandler(index) {
+      this.todoLists[index].editShow = false;   //因為要重新render所以無法focus();
+      this.$nextTick(function (){               //使用$nextTick成功
+        this.$refs['typeBox'+index][0].focus();
+      });
+    },
     editSubmit(index) {
       this.todoLists[index].editShow = true;
       localStorage.todoLists = JSON.stringify(this.todoLists);
@@ -157,6 +166,8 @@ Vue.component('to-do-list',{
 var app = new Vue({
   el: '#todoapp',
   data: {
-    todoTitle: 'To-Do List'
+    todoTitle: 'Vue To-Do List'
   }
 });
+
+//edit&focus

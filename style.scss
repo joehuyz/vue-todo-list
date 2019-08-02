@@ -24,12 +24,12 @@ body {
 
 .container {
   max-width: 720px;
-  min-width: 400px;
   margin: auto;
+  padding: 0 20px;
 }
 
 .priority {
-  font-size: 24px;
+  font-size: 22px;
   padding: 15px 0px;
 
   & input {
@@ -154,4 +154,8 @@ body {
 
 .date-area {
   font-size: 12px;
+}
+
+.flip-list-move {
+  transition: transform 1s;
 }

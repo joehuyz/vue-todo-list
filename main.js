@@ -34,7 +34,7 @@ Vue.component('to-do-list',{
 
 
         <div>
-          <ul class="to-do-list-style">
+          <transition-group name="flip-list" tag="ul" class="to-do-list-style">
             <li class="to-do-list-item flex"
                 v-for="(todoList, index) in todoLists"
                 :key="todoList.todoId">
@@ -58,7 +58,7 @@ Vue.component('to-do-list',{
                 </span>
               </div>
             </li>
-          </ul>
+          </transition-group>
         </div>
 
         <div>

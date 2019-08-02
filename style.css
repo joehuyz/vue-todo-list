@@ -167,4 +167,11 @@ body {
 .date-area {
   font-size: 12px;
 }
+
+.flip-list-move {
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
 /*# sourceMappingURL=style.css.map */
